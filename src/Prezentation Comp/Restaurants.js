@@ -1,15 +1,17 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Switch, Route} from 'react-router-dom';
 
 //css
 import './../Assets/restaurants.css';
+import FullRestaurants from './../Prezentation Comp/FullRestaurants';
+import RestaurantsDetailsContainer from './../Rendering Comp/RestaurantDetailsContainer';
 
 const Restaurants = () => (
     <div className="container Restaurants">
         <div className="row">
             <div className="col-md-4 col-sm-6 mb-4">
                 <div className="card h-100">
-                    <NavLink to={`/details/${this.props.business.id}`}><img className="card-img-top image-container" src={this.props.business.imageSrc} alt={this.props.business.name} /></NavLink>
+                    <NavLink to={`/Restaurants/RestaurantsDetailsContainer${this.props.business.id}`}><img className="card-img-top image-container" src={this.props.business.imageSrc} alt={this.props.business.name} /></NavLink>
                     <h2 className="card-title">
                         <NavLink to={`/details/${this.props.business.id}`}>{this.props.business.name}</NavLink>
                     </h2>
@@ -31,6 +33,11 @@ const Restaurants = () => (
                 </div>
             </div>
         </div>
+
+        <Switch>
+            <Route exact path='/Restaurants' component={FullRestaurants}/>
+            <Route path='/Restaurants/RestaurantsDetailsContainer/:businessId' component={RestaurantsDetailsContainer}/>
+        </Switch>
     </div>
 );
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './Prezentation Comp/Header';
-import SearchBarContainer from './Rendering Comp/SearchBarContainer';
+import Main from './Rendering Comp/Main';
+
 
 const App = () => (
     <div className="App">
         <Header />
-        <SearchBarContainer />
-
+        <Main />
     </div>
 );
 
