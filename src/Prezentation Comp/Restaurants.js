@@ -1,6 +1,9 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
+//css
+import './../Assets/restaurants.css';
+
 const Restaurants = () => (
     <div className="container Restaurants">
         <div className="row">
