@@ -17,7 +17,11 @@ class RestaurantDetailsContainer extends Component {
     }
 
     render() {
-        return <RestaurantsDetails />
+        return (
+            <div>
+                <RestaurantsDetails restaurantDetails={this.state.RestaurantDetails}/>
+            </div>
+        )
     }
 }
 

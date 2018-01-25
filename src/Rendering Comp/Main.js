@@ -1,29 +1,23 @@
 import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import SearchBarContainer from './SearchBarContainer';
-import Yelp from './../Util/Yelp';
-import Results from "../Prezentation Comp/Results";
+import SearchBar from './../Rendering Comp/SearchBar';
+import RestaurantDetailsContainer from "./RestaurantDetailsContainer";
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {businesses: []};
-        this.searchYelp = this.searchYelp.bind(this);
-    }
-
-    searchYelp(term, location, sortBy) {
-        Yelp.search(term,location,sortBy).then(businesses => {
-            this.setState({businesses:businesses})
-        });
     }
 
 
     render() {
         return (
             <div>
-                <SearchBarContainer searchYelp={this.searchYelp}/>
-                <Results businesses={this.state.businesses}/>
+                <Switch>
+                    <Route path='/search/restaurants/:businessId' component={RestaurantDetailsContainer}/>
+                    <Route path='/' component={SearchBar}/>
+                </Switch>
             </div>
 
         )
